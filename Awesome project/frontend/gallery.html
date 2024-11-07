@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kyondo Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Kyondo Gallery</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="donate.html">Donate</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="gallery">
+            <div class="product">
+                <img src="https://source.unsplash.com/random/800x600?basket,art" alt="Kyondo Basket 1">
+                <h3>Traditional Kyondo Basket</h3>
+                <p>Price: $30</p>
+                <button onclick="addToCart('Traditional Kyondo Basket', 30)">Add to Cart</button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Kyondo Basket Showcase. All rights reserved.</p>
+    </footer>
+    <script>
+        function addToCart(productName, price) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({ productName, price });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${productName} has been added to the cart!`);
+        }
+    </script>
+</body>
+</html>
+
